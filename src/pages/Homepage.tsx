@@ -1,4 +1,5 @@
 import Categories from "../components/Categories";
+import Devices from "../components/Devices";
 import HeroSection from "../components/HeroSection";
 
 function Homepage() {
@@ -12,6 +13,7 @@ function Homepage() {
       </div>
       <div className="max-w-screen-2xl mx-auto">
         <Categories />
+        <Devices />
       </div>
     </div>
   );

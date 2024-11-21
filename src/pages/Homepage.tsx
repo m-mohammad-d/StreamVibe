@@ -1,3 +1,4 @@
+import Categories from "../components/Categories";
 import HeroSection from "../components/HeroSection";
 
 function Homepage() {
@@ -9,7 +10,9 @@ function Homepage() {
           <HeroSection />
         </div>
       </div>
-      <div className="max-w-screen-2xl mx-auto"></div>
+      <div className="max-w-screen-2xl mx-auto">
+        <Categories />
+      </div>
     </div>
   );
 }

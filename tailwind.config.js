@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        intro: "url('/background-hero-section.png')",
+        header: "url('/header-bg.png')",
+      },
       colors: {
         "primary-45": "#E50000",
         "primary-50": "#FF0000",

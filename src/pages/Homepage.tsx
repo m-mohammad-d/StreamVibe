@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; 
+
 import Categories from "../components/Categories";
 import Devices from "../components/Devices";
 import FAQ from "../components/FAQ";
@@ -6,6 +10,13 @@ import Subscription from "../components/Subscription";
 import TrialBanner from "../components/TrialBanner";
 
 function Homepage() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      easing: "ease-in-out", 
+    });
+  }, []);
+
   return (
     <div>
       <div className="relative bg-intro mt-4 w-full h-[700px] bg-cover bg-center">
@@ -15,11 +26,21 @@ function Homepage() {
         </div>
       </div>
       <div className="max-w-screen-2xl mx-auto">
-        <Categories />
-        <Devices />
-        <FAQ />
-        <Subscription />
-        <TrialBanner />
+        <div data-aos="fade-up">
+          <Categories />
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+          <Devices />
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <FAQ />
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <Subscription />
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <TrialBanner />
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+
 import VideoTrailers from "../components/VideoTrailers";
 import MoviesList from "../components/MoviesList";
 import ShowsList from "../components/ShowsList";

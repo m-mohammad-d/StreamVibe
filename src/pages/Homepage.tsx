@@ -3,6 +3,7 @@ import Devices from "../components/Devices";
 import FAQ from "../components/FAQ";
 import HeroSection from "../components/HeroSection";
 import Subscription from "../components/Subscription";
+import TrialBanner from "../components/TrialBanner";
 
 function Homepage() {
   return (
@@ -18,6 +19,7 @@ function Homepage() {
         <Devices />
         <FAQ />
         <Subscription />
+        <TrialBanner />
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ export default {
       backgroundImage: {
         intro: "url('/background-hero-section.png')",
         header: "url('/header-bg.png')",
+        trialBanner : "url('/TrialBanner.png')"
       },
       colors: {
         "primary-45": "#E50000",

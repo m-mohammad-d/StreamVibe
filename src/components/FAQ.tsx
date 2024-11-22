@@ -52,7 +52,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="mx-auto p-4 text-white max-w-7xl">
+    <div className="mx-auto p-4 text-white mt-20">
       <div className="flex flex-col md:flex-row justify-between gap-4 items-start md:items-center">
         <div className="">
           <h1 className="text-3xl font-bold mb-4">

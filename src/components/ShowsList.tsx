@@ -20,7 +20,7 @@ const ShowsList: React.FC<ShowsListProps> = ({ genre }) => {
       ) : error ? (
         <p>Error fetching {genre} shows</p>
       ) : (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {data?.Search?.slice(0, 4).map((show: any) => (
             <MediaCard
               key={show.imdbID}

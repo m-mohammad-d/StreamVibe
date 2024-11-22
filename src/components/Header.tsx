@@ -21,8 +21,8 @@ function Header() {
   return (
     <>
       <header
-        className={`relative flex justify-center h-[200px] ${
-          isHomepage ? "bg-header bg-cover bg-center text-white" : "bg-dark-06"
+        className={`relative flex justify-center ${
+          isHomepage ? "bg-header bg-cover bg-center text-white  h-[200px]" : "h-[120px]"
         }`}
       >
         {isHomepage && <div className="absolute inset-0 bg-black/60"></div>}
@@ -46,7 +46,7 @@ function Header() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6 text-white">
             <CiSearch size={30} />
             <IoIosNotificationsOutline size={30} />
           </div>

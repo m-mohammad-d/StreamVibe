@@ -1,6 +1,6 @@
 function HeroSection() {
   return (
-    <div className="max-w-screen-2xl mx-auto text-center flex flex-col items-center justify-center gap-6 py-16">
+    <div className="max-w-screen-2xl mx-auto text-center flex flex-col items-center justify-center gap-6 py-16 px-4">
       <img
         src="/icon-logo.png"
         alt="logo"

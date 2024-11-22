@@ -7,7 +7,6 @@ import Devices from "../components/Devices";
 import FAQ from "../components/FAQ";
 import HeroSection from "../components/HeroSection";
 import Subscription from "../components/Subscription";
-import TrialBanner from "../components/TrialBanner";
 
 function Homepage() {
   useEffect(() => {
@@ -37,9 +36,6 @@ function Homepage() {
         </div>
         <div data-aos="fade-up" data-aos-delay="300">
           <Subscription />
-        </div>
-        <div data-aos="fade-up" data-aos-delay="400">
-          <TrialBanner />
         </div>
       </div>
     </div>

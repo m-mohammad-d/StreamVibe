@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import TrialBanner from "../components/TrialBanner";
 
 function AppLayout() {
   return (
@@ -10,6 +11,7 @@ function AppLayout() {
       <main className="flex-1">
         <Outlet />
       </main>
+      <TrialBanner />
       <Footer />
     </div>
   );

@@ -2,6 +2,7 @@ import Categories from "../components/Categories";
 import Devices from "../components/Devices";
 import FAQ from "../components/FAQ";
 import HeroSection from "../components/HeroSection";
+import Subscription from "../components/Subscription";
 
 function Homepage() {
   return (
@@ -16,6 +17,7 @@ function Homepage() {
         <Categories />
         <Devices />
         <FAQ />
+        <Subscription />
       </div>
     </div>
   );

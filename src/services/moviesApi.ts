@@ -1,25 +1,32 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const API_KEY = "7d389035";
+const API_KEY = "3f52b52f9ff0c1560703c65444acd925";
 
 export const moviesApi = createApi({
   reducerPath: "moviesApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://www.omdbapi.com/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://api.themoviedb.org/3",
+  }),
   endpoints: (builder) => ({
-    getMoviesByGenre: builder.query({
-      query: (genre) => `?apikey=${API_KEY}&s=${genre}&type=movie&page=1&y=2023`,
+    getGenres: builder.query({
+      query: (type) => `/genre/${type}/list?api_key=${API_KEY}`,
     }),
-    getShowsByGenre: builder.query({
-      query: (genre) => `?apikey=${API_KEY}&s=${genre}&type=series&page=1&y=2023`,
+    getMovies: builder.query({
+      query: (type) => `/movie/${type}?api_key=${API_KEY}`,
     }),
-    getMovieDetails: builder.query({
-      query: (id) => `?apikey=${API_KEY}&i=${id}`,
+    getShows: builder.query({
+      query: (type) => `/tv/${type}?api_key=${API_KEY}`,
+    }),
+    getMediaByGenre: builder.query({
+      query: ({ type, genreId }) =>
+        `/discover/${type}?api_key=${API_KEY}&with_genres=${genreId}`,
     }),
   }),
 });
 
 export const {
-  useGetMoviesByGenreQuery,
-  useGetShowsByGenreQuery,
-  useGetMovieDetailsQuery,
+  useGetGenresQuery,
+  useGetMoviesQuery,
+  useGetShowsQuery,
+  useGetMediaByGenreQuery,
 } = moviesApi;

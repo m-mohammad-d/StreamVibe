@@ -57,6 +57,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({
           <SwiperSlide key={media.id} className="w-auto">
             <MediaCard
               id={media.id}
+              type={mediaType}
               poster={media.poster_path}
               title={media.title || media.name || "Untitled"}
               year={media.release_date || media.first_air_date || "Unknown"}

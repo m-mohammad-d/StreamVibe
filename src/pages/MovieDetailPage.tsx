@@ -5,9 +5,10 @@ import {
 } from "../services/moviesApi";
 import Loader from "../components/Loader";
 import VideoTrailers from "../components/VideoTrailers";
+import MovieDescription from "../components/MovieDescription";
 
 const MovieDetailPage = () => {
-  const { id, Type } = useParams(); 
+  const { id, Type } = useParams();
 
   const query = Type === "movie" ? useGetMovieByIdQuery : useGetShowByIdQuery;
 
@@ -22,6 +23,9 @@ const MovieDetailPage = () => {
         title={media.overview}
         name={media.original_title || media.name}
       />
+      <div className="mx-4">
+        <MovieDescription description={media.overview} />
+      </div>
     </div>
   );
 };

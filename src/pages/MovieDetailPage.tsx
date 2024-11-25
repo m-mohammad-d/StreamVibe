@@ -16,11 +16,11 @@ import MovieReviews from "../components/MovieReviews";
 
 const MovieDetailPage = () => {
   const { id, Type } = useParams();
-  const query = Type === "movie" ? useGetMovieByIdQuery : useGetShowByIdQuery;
+  const query = Type === "movies" ? useGetMovieByIdQuery : useGetShowByIdQuery;
   const castQuery =
-    Type === "movie" ? useGetMovieCastQuery : useGetShowCastQuery;
+    Type === "movies" ? useGetMovieCastQuery : useGetShowCastQuery;
   const reviewsQuery =
-    Type === "movie" ? useGetSMovieReviewsQuery : useGetShowReviewsQuery;
+    Type === "movies" ? useGetSMovieReviewsQuery : useGetShowReviewsQuery;
 
   const { data: media, isLoading: mediaLoading } = query(id);
   const { data: castData, isLoading: castLoading } = castQuery(id);

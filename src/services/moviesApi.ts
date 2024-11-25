@@ -27,6 +27,12 @@ export const moviesApi = createApi({
     getShowById: builder.query({
       query: (id) => `/tv/${id}?api_key=${API_KEY}`,
     }),
+    getMovieCast: builder.query({
+      query: (id) => `/movie/${id}/credits?api_key=${API_KEY}`,
+    }),
+    getShowCast: builder.query({
+      query: (id) => `/tv/${id}/credits?api_key=${API_KEY}`,
+    }),
   }),
 });
 
@@ -37,4 +43,6 @@ export const {
   useGetMediaByGenreQuery,
   useGetMovieByIdQuery,
   useGetShowByIdQuery,
+  useGetMovieCastQuery,
+  useGetShowCastQuery,
 } = moviesApi;

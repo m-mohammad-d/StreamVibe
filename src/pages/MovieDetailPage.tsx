@@ -2,33 +2,41 @@ import { useParams } from "react-router-dom";
 import {
   useGetMovieByIdQuery,
   useGetShowByIdQuery,
+  useGetMovieCastQuery,
+  useGetShowCastQuery,
 } from "../services/moviesApi";
 import Loader from "../components/Loader";
 import VideoTrailers from "../components/VideoTrailers";
 import MovieDescription from "../components/MovieDescription";
 import MovieInfo from "../components/MovieInfo";
+import MovieCast from "../components/MovieCast";
 
 const MovieDetailPage = () => {
   const { id, Type } = useParams();
-
   const query = Type === "movie" ? useGetMovieByIdQuery : useGetShowByIdQuery;
+  const castQuery =
+    Type === "movie" ? useGetMovieCastQuery : useGetShowCastQuery;
 
-  const { data: media, isLoading } = query(id);
+  const { data: media, isLoading: mediaLoading } = query(id);
+  const { data: castData, isLoading: castLoading } = castQuery(id);
 
-  if (isLoading) return <Loader />;
+  if (mediaLoading || castLoading) return <Loader />;
 
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto px-4">
       <VideoTrailers
         poster={`https://image.tmdb.org/t/p/original/${media.poster_path}`}
         title={media.overview}
         name={media.title || media.name || media.original_title}
       />
-      <div className="flex flex-col md:flex-row justify-between gap-6 mx-4">
-        <div>
+      <div
+        className="flex flex-col lg:flex-row justify-between gap-6 mx-4 mt-4"
+      >
+        <div className="lg:w-2/3 w-full space-y-6">
           <MovieDescription description={media.overview} />
-        </div>
-        <div className="md:max-w-xs w-full">
+          <MovieCast cast={castData.cast} />
+        </div>{" "}
+        <div className="lg:w-1/3 w-full">
           <MovieInfo
             year={media.first_air_date || media.release_date}
             languages={media.original_language}

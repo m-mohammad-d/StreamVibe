@@ -1,3 +1,4 @@
+import FAQ from "../components/FAQ";
 import SupportForm from "../components/SupportForm";
 import SupportPageIntro from "../components/SupportPageIntro";
 
@@ -13,6 +14,8 @@ function SupportPage() {
           <SupportForm />
         </div>
       </div>
+
+      <FAQ />
     </div>
   );
 }

@@ -22,7 +22,9 @@ function Header() {
     <>
       <header
         className={`relative flex justify-center ${
-          isHomepage ? "bg-header bg-cover bg-center text-white  h-[200px]" : "h-[120px]"
+          isHomepage
+            ? "bg-header bg-cover bg-center text-white  h-[200px]"
+            : "h-[120px]"
         }`}
       >
         {isHomepage && <div className="absolute inset-0 bg-black/60"></div>}
@@ -39,7 +41,11 @@ function Header() {
               <Link
                 key={link.label}
                 to={link.path}
-                className="transition duration-300 ease-linear hover:bg-dark-10 hover:text-white p-4 rounded-md"
+                className={`transition duration-300 ease-linear p-4 rounded-md ${
+                  location.pathname === link.path
+                    ? "bg-dark-10 text-white"
+                    : "hover:bg-dark-10 hover:text-white"
+                }`}
               >
                 {link.label}
               </Link>
@@ -81,7 +87,9 @@ function Header() {
             <Link
               key={link.label}
               to={link.path}
-              className="text-lg p-2 rounded-md"
+              className={`text-lg p-2 rounded-md ${
+                location.pathname === link.path ? "bg-dark-10 text-white" : ""
+              }`}
               onClick={() => setSidebarOpen(false)}
             >
               {link.label}

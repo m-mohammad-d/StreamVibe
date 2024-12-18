@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FAQItem from "./FAQItem";
-
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const faqData = [
   {
     question: "What is StreamVibe?",
@@ -50,7 +52,12 @@ const FAQ: React.FC = () => {
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+    });
+  }, []);
   return (
     <div className="mx-auto p-4 text-white mt-20">
       <div className="flex flex-col md:flex-row justify-between gap-4 items-start md:items-center">
@@ -69,14 +76,16 @@ const FAQ: React.FC = () => {
       </div>
       <div className="grid grid-cols-1 gap-6 mt-4">
         {faqData.map((item, index) => (
-          <FAQItem
-            key={index}
-            question={item.question}
-            answer={item.answer}
-            isOpen={openIndex === index}
-            onToggle={() => toggleFAQ(index)}
-            index={index}
-          />
+          <div data-aos="fade-up">
+            <FAQItem
+              key={index}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openIndex === index}
+              onToggle={() => toggleFAQ(index)}
+              index={index}
+            />
+          </div>
         ))}
       </div>
     </div>

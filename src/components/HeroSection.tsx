@@ -7,7 +7,7 @@ function HeroSection() {
         className="w-32 h-32 md:w-48 md:h-48 object-contain"
       />
 
-      <h1 className="text-white text-4xl md:text-6xl font-bold tracking-wider">
+      <h1 className="text-white text-4xl md:text-6xl font-bold tracking-wider typing-animation">
         The Best Streaming Experience
       </h1>
 

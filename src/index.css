@@ -4,5 +4,6 @@
 
 body {
   @apply bg-dark-08;
-  font-family: "Manrope", sans-serif;
+  /* font-family: "Manrope", sans-serif;*/
+  font-family: "Josefin Sans", sans-serif;
 }

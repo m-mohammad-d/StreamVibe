@@ -7,6 +7,9 @@ import {
   FaVrCardboard,
 } from "react-icons/fa";
 import DeviceItem from "./DeviceItem";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Devices() {
   const deviceList = [
@@ -14,7 +17,7 @@ function Devices() {
       title: "Smartphones",
       paragraph:
         "StreamVibe is optimized for both Android and iOS smartphones. Download our app from the Google Play Store or the Apple App Store.",
-      Icon: FaMobileAlt, 
+      Icon: FaMobileAlt,
     },
     {
       title: "Tablet",
@@ -47,7 +50,12 @@ function Devices() {
       Icon: FaVrCardboard,
     },
   ];
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+    });
+  }, []);
   return (
     <div className="mt-20 mx-4">
       <div className="space-y-4 text-center lg:text-left">
@@ -63,12 +71,14 @@ function Devices() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 my-8">
         {deviceList.map((device, index) => (
-          <DeviceItem
-            key={index}
-            title={device.title}
-            paragraph={device.paragraph}
-            Icon={device.Icon} 
-          />
+          <div data-aos={index % 2 == 0 ? "fade-right" : "fade-left"}>
+            <DeviceItem
+              key={index}
+              title={device.title}
+              paragraph={device.paragraph}
+              Icon={device.Icon}
+            />
+          </div>
         ))}
       </div>
     </div>

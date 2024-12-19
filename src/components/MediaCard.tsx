@@ -6,7 +6,7 @@ interface MediaCardProps {
   title: string;
   year: string;
   id: number;
-  type: string;
+  type?: string;
 }
 
 const MediaCard: React.FC<MediaCardProps> = ({
